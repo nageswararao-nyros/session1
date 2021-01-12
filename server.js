@@ -28,6 +28,7 @@ app.use(function(req, res, next) {
 	next();
 })
 
+console.log("Data cloned")
 var admins = require('./models/admin')
 
 var email = "nageswararao.nyros@gmail.com";
