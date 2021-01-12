@@ -1,0 +1,225 @@
+/*Activities styles starts here*/
+.acty_label{
+  font-weight: 400!important;
+ }
+.my_activity_dtls
+{
+	background: #fff;width: 100%;margin-top: 30px;padding: 40px;
+}
+.my_seminar_dtls
+{
+	background: #fff;width: 100%;margin-top: 30px;overflow: hidden;padding: 40px; min-height: 500px;
+}
+.my_activity_dtls .act_hdr
+{
+    margin-bottom: 30px;
+}
+.form_err{
+	color:red;
+}
+.clr{
+	clear: both;
+}
+.no_activities{
+	text-align:center;
+	min-height:100px;
+	padding-top: 50px;
+}
+.link{
+	color:#333;
+	cursor: pointer;
+	text-decoration: none;
+}
+.link:hover{
+	color:#333;
+	text-decoration: none;
+}
+.acty_list_item{
+	border:1px solid #ccc;
+	margin-bottom:10px;
+	border-radius:5px;
+	cursor:pointer;
+	padding-left:5px;
+	overflow:hidden;
+}
+.acty_list_item:hover{
+	/*border:2px solid #ccc;*/
+	box-shadow:2px 2px 2px 2px #888888;
+}
+.acty_panel_body{
+	padding:25px!important;
+}
+.act_del_icon{
+	/*background-color:red;*/
+	padding:10px;
+	margin-left:10px;
+	cursor:pointer;
+}
+.del_modal_bdy_cnt{
+	text-align: right;
+}
+.no_btn{
+	background:none;
+	border:none;
+	color:#333;
+	outline:none;
+}
+.yes_btn{
+	background:none;
+	border:none;
+	color:orange;
+	margin-left: 10px;
+	outline:none;
+}
+.submit_blk{
+	text-align: right;
+	margin-top: 20px;
+}
+.act_submit_btn{background: #3f93f3;border-color: #3f93f3;width: 120px;}
+.attch_img{
+	width:50px;
+	height: 50px;
+}
+.attach_title{
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 10px;
+	text-overflow: ellipsis;
+	padding:10px 0px;
+}
+/* Activities styles ends here */
+
+/* Certifications styles starts here*/
+.cert_submit_blk{text-align: right;}
+.del_blk{text-align: right;}
+.del_blk .btn{margin-left: 10px;}
+.no_cert_data{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+/* Certification styles ends here*/
+
+/* Common Loading  */
+.loading_img{
+/*	height: 50px;
+	width:50px;*/
+	/*position: absolute;*/
+	position: relative;
+	top:50%;
+	bottom:50%;
+/*	left:50%;
+	right:50%;*/
+}
+.rel-pos{
+	position: relative;
+}
+/*handle components styles start */
+.my_handle_dtls
+{
+  background: #fff;
+    width: 100%;
+    margin-top: 30px;
+    overflow: hidden;
+    padding: 40px;
+}
+.handle_title
+{
+  overflow:hidden;
+  margin-bottom: 10px;
+}
+.handle_title h1
+{
+  font-size: 26px;
+  color: #000;
+  float: left;
+ }   
+.form-blk-head{
+    background: #edefed;
+    padding: 15px 30px;
+    border-bottom: 1px solid #e7e8ea;
+}    
+.form-blk-head i
+{
+	cursor:pointer;
+}
+.blk
+{
+	margin-bottom: 20px; 
+}    
+.handle_body
+{
+  margin-top: 15px;
+}
+.blk .handle_lbl
+{
+  font-weight: bold;
+  position: relative;
+  top: 5px;
+  font-size: 12px;
+}
+.add_handle_modal .modal-body
+{
+  min-height: 110px;
+}
+.delete_icon
+{    
+    background-color: #d1d0cc;
+    padding: 9px;
+    border-radius: 14px;
+    position: relative;
+    top: -4px;
+    bottom: 20px;
+    left: 10px;
+ }   
+.span3{
+	float: left;
+/*    margin-left: 10px;
+    width: 20%;*/
+}
+.span3 .cant{background:#F65153}
+.span3 .asnmt{background:#FFC745}
+.span3 .github{background:#00B6F2}
+.span3 .project{background:#62B970}
+
+ /*handle components styles end */
+
+ /*new styles added to handles  14/09/2018 starting*/
+
+.handle_btns{display: inline-flex;float: right;margin-top: 15px;}
+.handle_btns button:first-child{margin-right:10px;}
+.blk form{margin-top: 20px;} 
+.blk form .form-control  {border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #e6e6e6;
+    box-shadow: none;
+    border-radius: 0px;
+ }   
+/*new styles added to handles 14/09/2018 ending*/
+
+
+.no_posts{
+	text-align:center;
+	min-height:100px;
+	padding-top: 50px;
+}
+.no_posts1,.no_projects,.no_skills{
+	text-align:center;
+	min-height:100px;
+	padding-top: 50px;
+}
+.pro_link
+{
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.inp_err
+{
+	border-color: red;
+}
+.st_dt{background-color: #fff;}
+.scroll{text-decoration: none;cursor:pointer;}
+.scroll:hover,.scroll:active{text-decoration: none;}
+

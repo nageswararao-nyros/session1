@@ -1,0 +1,362 @@
+.my_prof_dtls {
+	    background: #fff;
+	    width: 100%;
+	    margin-top: 30px;
+	    overflow: hidden;
+	    padding: 40px;
+	}
+	.prof_dtls_cntnt .name {
+	    font-weight: bold;
+	    font-size: 26px;
+	    text-align: right;
+	    text-transform: capitalize;
+	}
+	.my_pro_pic img {
+	    margin-bottom: 15px;
+	    width: 100%;
+	    max-height: 190px;
+	    height: 190px;
+	}
+	body {
+		background-color: #eceeef;
+	}
+	.my_prjct_dtls {
+	    background: #fff;
+	    width: 100%;
+	    margin-top: 30px;
+	    overflow: hidden;
+	    padding: 40px;
+	}
+	.my_handle_dtls {
+	    background: #fff;
+	    width: 100%;
+	    margin-top: 30px;
+	    overflow: hidden;
+	    padding: 40px;
+	}
+	.headercls {
+		font-weight: bold;
+	}
+	.my_skills_dtls {
+	    background: #fff;
+	    width: 100%;
+	    margin-top: 30px;
+	    overflow: hidden;
+	    padding: 40px;
+	}
+	.skill_pills {
+	    list-style: none;
+	    margin-top: 30px;
+	}
+	.pri-skill-head {
+	    float: left!important;
+	    border: 1px solid transparent;
+	    padding: 5px 10px;
+	    font-weight: bold;
+	    margin-top: 3px;
+	}
+	.skill_pills li {
+	    float: left;
+	    border: 1px solid #ccc;
+	    padding: 5px 10px;
+	    border-radius: 30px;
+	    margin: 0 15px 15px 0px;
+	}
+	.skill_pills li i.pill_cls img {
+	    width: 10px;
+	}
+	.skil_icn {
+	    margin-left: 10px;
+	    cursor: pointer;
+	}
+	.skill_pills li i.skill_stat {
+	    font-style: normal;
+	    width: 25px;
+	    height: 25px;
+	    text-align: center;
+	    border-radius: 60%;
+	    margin: 0px 6px;
+	    padding-top: 2px;
+	    font-size: 10px;
+	    font-weight: bold;
+	}
+	.skl_stat_two {
+	    background: #ffca28;
+	    color: #fff;
+	}
+	.skill_pills li i {
+	    float: right;
+	}
+	.skl_stat_two {
+	    background: #ffca28;
+	    color: #fff;
+	}
+	.skl_stat_one {
+	    background: #ef5350;
+	    color: #fff;
+	}
+	.skl_stat_four {
+	    background: #66bb6a;
+	    color: #fff;
+	}
+	.prjcts {
+	    position: relative;
+	    overflow: hidden;
+	    padding: 0px;
+	    margin-top: 25px;
+	    box-shadow: 0px 0px 4.25px 0.75px rgba(0, 0, 0, 0.2);
+	}
+	.prjcts .p_blk {
+	    height: 52px;
+	    background-color: #f5f5f5;
+	    padding-top: 15px;
+	}
+	.prjcts h2 {
+	    font-size: 20px;
+	    color: #333;
+	    float: left;
+	    margin: 0px 15px;
+	    text-transform: capitalize;
+	}
+	/*.prjcts .p_blk{height:52px;background-color: #f5f5f5;padding-top: 15px;}
+	.prjcts .p_cmn{border-bottom: 1px solid #bfbcbc;padding:17px 32px 2px;}
+	.prjcts .p_lbl_blk{border-right: 1px solid #bfbcbc;padding: 0;}
+	.prjcts .p_val_blk{border-right: 1px solid #bfbcbc; padding: 0;}
+	.prjcts .fls_blk{margin-bottom: 20px;}*/
+	
+	.flag {
+	    width: 18px;
+	    height: 30px;
+	    position: absolute;
+	    color: white;
+	    font-size: 11px;
+	    letter-spacing: 0.2em;
+	    text-align: center;
+	    text-transform: uppercase;
+	    right: 35px;
+	    top: 0;
+	}
+	.approved {
+	    background-color: #76be76;
+	}
+	.prjcts .p_cmn {
+	    border-bottom: 1px solid #bfbcbc;
+	    padding: 17px 32px 2px;
+	}
+	.prjcts .p_dsc {
+	    position: relative;
+	    right: 14px;
+	}
+	.prjcts p {
+	    font-size: 13px;
+	    color: #333;
+	    margin-bottom: 10px;
+	}
+	.prjcts .p_lbl_blk {
+	    border-right: 1px solid #bfbcbc;
+	    padding: 0;
+	}
+	.prjcts .p_val_blk {
+	    border-right: 1px solid #bfbcbc;
+	    padding: 0;
+	}
+	.flag:after {
+	    content: ' ';
+	    position: absolute;
+	    left: 0;
+	    bottom: 0;
+	    width: 0;
+	    height: 0;
+	    border-bottom: 10px solid white;
+	    border-left: 9px solid transparent;
+	    border-right: 9px solid transparent;
+	}
+	.cnt_cls {
+	    font-weight: 100;
+	    font-size: 22px;
+	}
+	.prjct_title h1 {
+	    font-size: 26px;
+	    color: #000;
+	}
+	.prjct_fils ul li a img {
+	    width: 50px;
+	    height: 50px;
+	    max-height: 50px;
+	}
+	.my_act_dtls_blk {
+	    position: relative;
+	    overflow: hidden;
+	    padding: 0px;
+	    margin-top: 25px;
+	    box-shadow: 0px 0px 4.25px 0.75px rgba(0, 0, 0, 0.2);
+	}
+	.my_act_dtls_blk .p_blk {
+	    height: 52px;
+	    background-color: #f5f5f5;
+	}
+	.my_act_dtls_blk .ttl_blk {
+	    border-bottom: 1px solid #bfbcbc;
+	    padding: 0;
+	    overflow: auto;
+	}
+	.my_act_dtls_blk p span {
+	    font-weight: bold;
+	}
+	.my_act_dtls_blk p {
+	    font-size: 13px;
+	    color: #333;
+	    margin-bottom: 10px;
+	}
+	.my_act_dtls_blk .p_val_blk {
+	    padding: 17px 21px 2px !important;
+	    border-left: 1px solid #bfbcbc;
+	    margin-left: -1px;
+	}
+	.my_act_dtls_blk .p_dsc {
+	    border-bottom: 1px solid #bfbcbc;
+	    padding: 17px 19px 2px;
+	}
+	.my_act_dtls_blk .ttl_blk .t_lbl {
+	    padding: 17px 5px 2px;
+	}
+	.my_act_dtls_blk h2 {
+	    font-size: 20px;
+	    color: #333;
+	    float: left;
+	    margin: 15px 0px 12px 17px;
+	    text-transform: capitalize;
+	}
+	.my_act_dtls_blk .u_lbl {
+	    padding: 17px 5px 2px;
+	}
+	.my_act_dtls_blk .url_blk {
+	    border-bottom: 1px solid #bfbcbc;
+	    padding: 0;
+	    overflow: auto;
+	}
+	.my_act_dtls_blk .act_urls {
+	    padding: 17px 21px 2px !important;
+	    border-left: 1px solid #bfbcbc;
+	    margin-left: -1px;
+	}
+	.handle_title h1 {
+	    font-size: 26px;
+	    color: #000;
+	}
+	.skill_title h1 {
+	    font-size: 26px;
+	    color: #000;
+	}
+	.ed_dtls_main {
+	    position: relative;
+	    overflow: hidden;
+	    padding: 0px;
+	    margin-top: 25px;
+	    box-shadow: 0px 0px 4.25px 0.75px rgba(0, 0, 0, 0.2);
+	}
+	.ed_dtls_main .p_blk {
+	    height: 52px;
+	    background-color: #f5f5f5;
+	}
+	.ed_dtls_main .p_lbl_blk {
+	    border-right: 1px solid #bfbcbc;
+	    padding: 0;
+	}
+	.ed_dtls_main .p_val_blk {
+	    border-right: 1px solid #bfbcbc;
+	    padding: 0;
+	}
+	.ed_dtls_main .p_cmn {
+	    border-bottom: 1px solid #bfbcbc;
+	    padding: 17px 32px 2px;
+	}
+	.ed_dtls_main p {
+	    font-size: 13px;
+	    color: #333;
+	    margin-bottom: 10px;
+	}
+	.ed_dtls_main p span {
+	    font-weight: bold;
+	}
+	.ed_dtls_main h2 {
+	    font-size: 20px;
+	    color: #333;
+	    float: left;
+	    margin: 15px 0px 12px 17px;
+	    text-transform: capitalize;
+	}
+	.crt_dtls_blk {
+	    position: relative;
+	    overflow: hidden;
+	    padding: 0px;
+	    margin-top: 25px;
+	    box-shadow: 0px 0px 4.25px 0.75px rgba(0, 0, 0, 0.2);
+	}
+	.crt_dtls_blk .p_blk {
+	    height: 52px;
+	    background-color: #f5f5f5;
+	}
+	.crt_dtls_blk .p_cmn {
+	    border-bottom: 1px solid #bfbcbc;
+	    padding: 17px 32px 2px;
+	}
+	.crt_dtls_blk .p_dsc {
+	    position: relative;
+	    right: 14px;
+	}
+	.crt_dtls_blk p {
+	    font-size: 13px;
+	    color: #333;
+	    margin-bottom: 10px;
+	}
+	.crt_dtls_blk h2 {
+	    font-size: 20px;
+	    color: #333;
+	    float: left;
+	    margin: 15px 0px 12px 17px;
+	    text-transform: capitalize;
+	}
+	.crt_dtls_blk .p_lbl_blk {
+	    border-right: 1px solid #bfbcbc;
+	    padding: 0;
+	}
+	.crt_dtls_blk .p_val_blk {
+	    border-right: 1px solid #bfbcbc;
+	    padding: 0;
+	}
+	.crt_dtls_blk p span {
+	    font-weight: bold;
+	}
+	.crt_dtls_blk .crt_fls_blk .crt_img {
+	    margin-left: 8px;
+	}
+	.crt_dtls_blk .crt_fls_blk img {
+	    width: 80px;
+	    max-width: 80px;
+	    min-height: 80px;
+	    max-height: 80px;
+	}
+	.crt_dtls_blk .crt_fls_blk {
+	    padding-top: 11px;
+	    padding-left: 22px;
+	    padding-bottom: 10px;
+	}
+	#content {
+		background-color: #eceeef;
+	}
+	.span3 .cant {
+	    background: #F65153;
+	}
+	.span3 .asnmt {
+	    background: #FFC745;
+	}
+	.span3 .github {
+	    background: #00B6F2;
+	}
+	.span3 .project {
+	    background: #62B970;
+	}
+	#dwnld_btn {
+		margin-top: 25px;
+	}

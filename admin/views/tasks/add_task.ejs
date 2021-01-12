@@ -1,0 +1,143 @@
+<%- include('../partials/layout') %>
+<div class="main_wrapper">
+		<div class="wrapper_header">
+		<div class="row">
+			<div class="col-md-6">
+				Add Task
+			</div>
+			<div align="right" class="col-md-6">
+				<a href="/admin/logout" class="btn btn-default">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div style="padding: 30px;">
+		<div id="msg_blk" class="hide">
+			<div class="alert alert-success" id="msg_box" role="alert">
+			  Task Created
+			</div>
+		</div>
+		<form id="task_form">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Task Title</label>
+								<input type="text" placeholder="Task Title" class="form-control" name="" id="title">
+								<span class="err_msg" id="title_err"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+						  <div class="form-group">
+								<label>Est Hrs</label>
+								<input type="number" placeholder="Est Hrs" class="form-control" name="" id="est_hrs">
+								<span class="err_msg" id="est_hrs_err"></span>
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Description</label>
+								<textarea class="form-control" id="description" name=""  placeholder="Description"></textarea>
+								<span class="err_msg" id="description_err"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Assigned To</label>
+								<select class="form-control selectpicker" id="assignted_to" data-live-search="true">
+					                <option value="" data-tokens="china">Select</option>
+					                <% for(var i=0; i< users.length; i++) { %>
+					  					<option value="<%= users[i].id %>" data-tokens="<%= users[i].first_name %> <%= users[i].last_name %>"><%= users[i].first_name %> <%= users[i].last_name %></option>
+					                <% } %>
+					                </select>
+								<span class="err_msg" id="assignted_to_err"></span>
+
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div align="right" style="margin-right: 50">
+			  <button id="save_meeting" class="btn btn-info">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!--  -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+
+<body>
+<style type="text/css">
+	.err_msg{
+		color: red;
+		font-weight: bold;
+	}
+</style>
+<script type="text/javascript">
+	$(function() {
+	  $('#meeting_type').selectpicker();
+	});
+	$(document).ready(function(){
+	  $("#save_meeting").click(function(e){
+	    e.preventDefault();
+	    if($('#title').val() && $('#description').val() && $('#assignted_to').val() && $('#est_hrs').val() !== '' ){
+	    	var task_data = {
+		    	title: $('#title').val(),
+		    	description: $('#description').val(),
+		    	est_hrs: $('#est_hrs').val(),
+		    	user_id: $('#assignted_to').val(),
+		    	
+		    }
+		    console.log(task_data)
+		    $.ajax({
+		    	method: "POST",
+		    	url: '/admin/save_task',
+		    	data: task_data,
+		    	success: function(res){
+		    		console.log(res)
+		    		if(res.status == "suceess"){
+		    			$('#task_form').trigger("reset");
+		    			$('#msg_blk').removeClass("hide")
+		    			setTimeout(function(){
+		    				$('#msg_blk').addClass("hide")
+		    				window.location.href = "/admin/all_tasks"
+		    			}, 2000)
+		    		}
+		    	}
+		    })
+	    }
+    	if($('#title').val() == ""){
+    		$('#title_err').html("Title required")
+    	}else{
+    		$('#title_err').html("")
+    	}
+    	if($('#est_hrs').val() == ""){
+    		$('#est_hrs_err').html("Estimation required")
+    	}else{
+    		$('#est_hrs_err').html("")
+    	}
+    	if($('#description').val() == ""){
+    		$('#description_err').html("Description required")
+    	}else{
+    		$('#description_err').html("")
+    	}
+    	
+    	if($('#assignted_to').val() == ""){
+    		$('#assignted_to_err').html("Assign to anyone")
+    	}else{
+    		$('#assignted_to_err').html("")
+    	}
+    	
+	  });
+	});
+</script>

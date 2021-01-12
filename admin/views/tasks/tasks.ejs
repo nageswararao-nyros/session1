@@ -1,0 +1,186 @@
+
+<%- include('../partials/layout') %>
+<div class="main_wrapper">
+		<div class="wrapper_header">
+		<div class="row">
+			<div class="col-md-6">
+				Tasks Manager
+			</div>
+			<div align="right" class="col-md-6">
+				<a href="/admin/logout" class="btn btn-default">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div style="padding: 30px;">
+		<div align="right"><a href="/admin/add_task" class="btn btn-primary">Add Task</a></div>
+		<br /><br />
+		<form id="filters_form">
+			<table>
+				<tbody class="filter">
+					<tr>
+						<td>
+							<td class="labl">Title:</td>
+			                <td class="input-group" style="margin-right: 20px;">
+			                 <input type="text" column='1' class="form-control" name="title">
+			                </td>
+						</td>
+						<td style="margin-left: 20px;">
+							<td class="labl">Assigned To:</td>
+			                <td class="input-group" style="margin-right: 20px;">
+			                 <input type="text" column='3' class="form-control" name="assign">
+			                </td>
+						</td>
+						<td>
+						<td class="labl">Type:</td>
+						<td class="input-group" style="margin-right: 20px;">
+	                    	<select  class="form-control" id="status" column='4' style="border-radius: 0px; width: 250px;" name="status">
+		                      <option value="">Select</option>
+		                      <option value="Yet to start">Yet to Start</option>
+		                      <option value="InProgress">InProgress</option>
+		                      <option value="Done">Done</option>
+		                    </select>
+	                    </td>
+	                  </td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+
+		<table id="dataTables-example" class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>S.No</th>
+					<th>Task title</th>
+					<th>Description</th>
+					<th>Assigned To</th>
+					<th>Status</th>
+					<th>Est Hrs</th>
+					<th>Created At</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i< tasks.length; i++) { %>
+					<tr>
+						<td><%= i+1 %></td>
+						<td><%= tasks[i].title %></td>
+						<td><%= tasks[i].description %></td>
+						<td><%= tasks[i].user_id.first_name  %> <%= tasks[i].user_id.last_name  %></td>
+						<td><%= tasks[i].status %></td>
+						<td><%= tasks[i].est_hrs %></td>
+						<td><%= moment(tasks[i].createdAt).format("dddd, Do MMMM YYYY")%></td>
+						<td>
+							<a style="margin-top: 10px; margin-bottom: 10px;" href="/admin/task/<%= tasks[i]._id %>/edit"><button class="btn"><i style="color: blue;" class="fa  fa-pencil" ></i></button></a>
+							<button data-toggle="modal" data-target="#deleteModal" onclick="openModal('<%= tasks[i]._id%>','<%= tasks[i].title %>' )" style="margin-top: 10px; margin-bottom: 10px;" class="btn"><i style="color: blue;" class="fa  fa-trash-o" ></i></button>
+						</td>
+					</tr>
+				<%}%>
+			</tbody>
+		</table>
+
+			<div class="modal fade" id="deleteModal" role="dialog">
+		    <div class="modal-dialog">
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">Modal Header</h4>
+		        </div>
+		        <div class="modal-body">
+		          Are you sure want to delete <b id="meeting_name_modal"></b> meeting ?
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" id="close_btn" class="btn btn-default" data-dismiss="modal">Close</button>
+		          <input type="hidden" name="" value="" id="del_id">
+		          <button type="button" class="btn btn-danger" onclick="delCarousel()">Delete</button>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+    </div>
+</div>
+
+
+ <script type="text/javascript"  src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script> 
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"> 
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="/admin_assets/js/jquery.tableToExcel.js"></script>
+
+
+
+ <!-- DataTables JavaScript -->
+<script src="/admin_assets/js/plugins/custom-select/jquery-customselect.js"></script>
+<script src="/admin_assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/admin_assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="/admin_assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
+<script type="text/javascript" src='/admin_assets/js/custom_scripts/skills.js'></script> 
+<!-- export the skills into excel sheet -->
+<script src="/admin_assets/js/jquery.tableToExcel.js"></script>
+
+<script type="text/javascript">
+	function getMeetingQR(id){
+		window.location.href = '/admin/'+id+'/generateQR'
+	}
+
+	$(document).ready(function() {
+		var table = $('#dataTables-example').DataTable({
+        // responsive: true,
+	        search:{
+	          search: ""
+	        },
+	        "aaSorting": [],
+	       
+	    });
+	    $('.filter input').on( 'keyup', function () {
+	        var column = $(this).attr("column");
+	        table
+	          .columns( column )
+	          .search( this.value )
+	          .draw();
+	    });
+
+	    $('#status').on('change', function () {
+	        var column = $(this).attr("column");          
+	        table
+	          .columns( column )
+	          .search( this.value )
+	          .draw();
+	    });
+	})
+
+	function openModal(id, name){
+		$('#del_id').val(id)
+		$('#meeting_name_modal').html(name)
+		console.log(id,name)
+	}
+
+	
+
+	
+
+	function delCarousel(){
+		var id = $('#del_id').val()
+
+		$.ajax({
+  		method: "get",
+    	url: '/admin/task/'+id+'/delete_task',
+    	success: function(res){
+    		console.log(res)
+    		$('#close_btn').click();
+    		if(res.status === 200){
+    			$('#close_btn').click();
+    			window.location.href = "/admin/all_tasks"
+    		}
+    	}
+  	})
+	}
+</script>

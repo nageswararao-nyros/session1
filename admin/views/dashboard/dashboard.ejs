@@ -1,0 +1,23 @@
+<%- include('../partials/layout') %>
+
+<div class="main_wrapper">
+	<div class="wrapper_header">
+		<div class="row">
+			<div class="col-md-6">
+				Dashboard
+			</div>
+			<div align="right" class="col-md-6">
+				<a href="/admin/logout" class="btn btn-default">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div style="padding: 30px"><h1>Welcome DashBoard</h1></div>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		localStorage.setItem('nav_item', 'dashboard')
+	})
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

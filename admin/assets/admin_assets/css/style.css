@@ -1,0 +1,182 @@
+.img-modal{width: 70%}
+.attchModalTrigger{cursor: pointer;}
+.action-icon{padding: 8px; cursor: pointer;}
+.unread-notif{font-size: 7px!important; position: absolute; left: 6px; color: red;top:-3px;}
+.sorting::after, .sorting_asc::after, .sorting_desc::after{display: none;}
+.unread-notif-link{background: whitesmoke}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{-webkit-appearance: none;margin: 0;}
+.no-overflow{overflow: hidden;}
+.date{background: #fff!important;}
+#notifications-list{width: 400px;}
+ul.multiselect-container.dropdown-menu{max-height: 200px!important;}
+.inputWrapper{overflow: hidden;position: relative;cursor: pointer;background: #fff;border-radius: 5px;-webkit-box-shadow: 0 0 4px 0px #aaa;box-shadow: 0 0 4px 0px #aaa;color: #000;color: #626262;text-align: center;line-height: 40px;height: 40px;width: 250px;margin: 15px 0px;}
+table.dataTable thead .sorting { background: none !important; }
+table.dataTable thead .sorting_asc { background: none !important; }
+table.dataTable thead .sorting_desc { background: none !important; }
+.nav-right-icon{padding: 15px 0px;}
+.atchmnt{margin: 10px 0px;}
+.popularity{padding: 10px;font-size: 10px;margin: 10px;border-radius: 10px;}
+.popularity_0{background: #ffbc00; color: #42405f}
+.popularity_1{background: skyblue; color: #42405f}
+.popularity_2{background: #7d7f80;color: #fff;}
+.proj_atchmnt_blk{position: relative;padding: 10px; margin: 10px 5px; background: lightgrey; border-radius: 5px;max-height:80px;min-height:80px;}
+.proj_atchmnt{width: 50px;height:50px;max-height: 50px;}
+.rmv-atchmnt{position: absolute;top: 2px;right: 5px;cursor: pointer;}
+.emp-notes{border: 1px solid lightgray;margin: 3px;padding: 8px;border-radius: 5px;}
+.del-note-link{cursor: pointer;}
+
+/*styles for skills page 16-10-2018 starting  */
+#save_skill{margin-top: 10px;float: right;}
+.skill_count_btn{margin-top:20px;}
+/*styles for skills page 16-10-2018 ending  */
+
+
+.attachments{list-style-type: none;display: inline-flex;margin-top: 20px;}
+.attachments li {margin-left: 2px;}
+.attachments li a img{width:50px;height:50px;min-height: 50px;max-height: 50px;}
+/*.skill_pills{list-style: none;margin-top: 30px;}
+.skill_pills li{float: left;border: 1px solid #ccc;padding: 5px 10px;border-radius: 30px;margin: 0 15px 15px 0px;}
+.skill_pills li span{float: left;cursor: pointer;margin-top: 2px;}
+.skill_pills li i{float: left;cursor: pointer}
+.skill_pills li i.skill_stat{font-style: normal; width: 25px; height: 25px; text-align: center; border-radius: 60%; margin: 0px 6px;padding-top: 7px;font-size: 10px;font-weight: bold;}
+*/
+.skil_nam {float: left;font-size: 19px;font-weight: bold;}
+.skill_stat{width: 25px;height: 25px; border-radius: 30px; font-size: 11px; display: block; line-height: 24px;font-weight: bold;margin-left: 7px;}
+.skl_stat_one{background: #ef5350;color: #fff;}
+.skl_stat_two{background: #f06292;color: #fff;}
+.skl_stat_three{background: #ffca28;color: #fff;}
+.skl_stat_four{background: #29b6f6;color: #fff;}
+.handle_blk{border: 1px solid #e6e6e6;border-radius: 6px; padding: 17px; margin-bottom: 8px;}
+.pro_lbl{font-weight: bold;}
+
+#getusers,#getproject{margin-left:10px;}
+
+#category_btn,#designations_btn,#university_btn,#input_skill{margin-left:15px;}
+/*.marg_rht{margin-right:5px;}*/
+#side-menu li a i{width:20px;text-align: left;}
+
+.input_fields_wrap{ width: 100%;  }
+.edit_input_fields_wrap{ width: 100%;  }
+.edit_input_fields_wrap .form-group{margin-bottom: 0;}
+.add_field_button,.remove_field,.edit_field_button,.remove_field{float: left;margin-top: 8px;cursor: pointer;}
+/*.dyn_inp{margin-bottom: 15px;}*/
+.dyn_inp input#urls{float:left;width:95%;margin-right:10px;margin-bottom: 15px;}
+#edit_bulletin .modal-dialog{width:71%;}
+
+#edit_handle_form .row {margin-bottom: 10px;}
+.handle_edit{width: 100%; text-align: right;}
+
+.hed{ border-bottom: 1px solid #eee;}
+.hed h1{border-bottom:none !important}
+.hed .breadcrumb{background: none; float: right;margin-top: 35px;}
+.back_arrow{color: black; font-size: 26px; padding: 10px;}
+.back_arrow:hover,.back_arrow:active{color: black; font-size: 26px; padding: 10px;}
+
+.activity_blk{border-bottom: 1px solid #e6e6e6; padding-bottom: 10px;margin-left: 25px;margin-right: 25px}
+.activity_brdrn{border-bottom:0px;padding-left: 31px}
+.ed_blk_brdrn{border-bottom:0px;padding-top: 10px;}
+.ed_blk{border-bottom: 1px solid #e6e6e6; padding-bottom: 10px;padding-top: 10px;}
+
+.all_titls{text-transform: capitalize;}
+.panel-skill > .panel-heading{border-color: #95d2ea; color: white; background-color: #95d2ea;}
+.panel-skill{border-color: #77dcd3;}
+.panel-skill{border-color: #95d2ea;}
+.panel-skill > .panel-heading {border-color: #95d2ea;color: white; background-color: #95d2ea;}
+.panel-skill > a {color: #95d2ea;}
+.panel-skill > a:hover {color: #4fccd9;}
+#suggest_skill{margin-top:22px;}
+#edit_suggest_skill{margin-top:22px;}
+#save_course{margin-top:21px;}
+
+.users .dataTables_length label{display: none !important;}
+.filter td{ padding:5px 6px;}
+.labl{font-weight: bold; }
+.dataTables_filter{display: none;}
+
+.new_record_badge {
+	float: right;
+	background-color: #ff8239 !important;
+}
+.participants_badge {
+	padding: 2px;
+	border: 1px solid #ccc;
+	border-radius: 16px;
+	text-align: center;
+}
+.participants_blk .col-md-4 {
+	padding: 5px !important;
+}
+.hot_skills_blk .col-md-12 {
+	margin-bottom: 1%;
+	border: 1px solid #eee;
+}
+.hot_skills_blk .col-md-3 {
+	padding: 10px;
+}
+.hot_skills_blk .col-md-3 a {
+	text-decoration: none;
+	color: #525252;
+}
+.hot_skills_blk .col-md-3 a:hover {
+	color: #337ab7;
+	text-decoration: underline;
+}
+.hot_skills_blk .more_link_tag {
+	float: right;
+	margin-top: 17px;
+}
+.activities_filter select {
+	float: right !important;
+	width: auto !important;
+}
+.activities_filter h4 {
+	float: left;
+}
+.not_found_tag {
+	margin: 2%;
+	text-align: center;
+}
+.bday_profile_pic {
+	width: 35%;
+	margin-bottom: 5px;
+}
+.latest_skills_blk li {
+	list-style: none;
+	margin-left: -20%;
+}
+#custom_select_td .custom-select {
+	height: initial;
+	width: 100%;
+	border-color: #ccc;
+	top: -2px;
+}
+#custom_select_td .custom-select input {
+	width: 97%;
+	border-color: #ccc;
+}
+#custom_select_td .custom-select div {
+	border-color: #ccc;
+	width: 100.5%;
+}
+#custom_select_td .custom-select a {
+	color: #555;
+	outline: none;
+}
+.roles_main_label {
+    padding-top: 3px;
+    padding-bottom: 4px;
+    margin-top: 4px;
+}
+.roles_main_label label {
+	margin-left: initial !important;
+}
+#roles_form .checkbox-inline {
+	margin-left: 3%;
+}
+#roles_form select {
+	width: 30% !important;
+}
+.no_bdays_tag {
+	padding: 15px 2px;
+}

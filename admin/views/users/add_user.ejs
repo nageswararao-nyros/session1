@@ -1,0 +1,217 @@
+<%- include('../partials/layout') %>
+<div class="main_wrapper">
+		<div class="wrapper_header">
+		<div class="row">
+			<div class="col-md-6">
+				Add User
+			</div>
+			<div align="right" class="col-md-6">
+				<a href="/admin/logout" class="btn btn-default">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div style="padding: 30px">
+		<div id="msg_blk" class="hide">
+			<div class="alert alert-success" id="msg_box" role="alert">
+			  User Created
+			</div>
+		</div>
+		<form id="user_form">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>First Name</label>
+								<input type="text" placeholder="First Name" class="form-control" name="" id="first_name">
+								<span class="err_msg" id="fn_err"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+						  <div class="form-group">
+								<label>Last Name</label>
+								<input type="text" placeholder="Last Name" class="form-control" name="" id="last_name">
+								<span class="err_msg" id="ln_err"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Phone</label>
+								<input type="text" class="form-control" placeholder="Phone Number" name="" pattern="[0-9\/]*" minlength="10" maxlength="10" id="phone">
+								<span class="err_msg" id="ph_err"></span>
+						  </div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Email</label>
+								<input type="email" class="form-control" placeholder="Email" name="" id="email">
+								<span class="err_msg" id="email_err"></span>
+						  </div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Date of Birth</label>
+								<input type="date" class="form-control" name="" id="dob">
+								<span class="err_msg" id="db_err"></span>								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Password</label>
+								<input type="password" placeholder="Password" class="form-control" name="" id="password">
+								<span class="err_msg" id="pass_err"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+						  <div class="form-group">
+								<label>Confirm Password</label>
+								<input type="password" placeholder="Confirm Password" class="form-control" name="" id="conf_password">
+								<span class="err_msg" id="conf_pass_err"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Address</label>
+								<textarea placeholder="Address" id="address" class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div align="right">
+				<a href="/admin/users" class="btn btn-warning">Cancel</a>
+			  <button id="save_user" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
+<style type="text/css">
+	.err_msg{
+		color: red;
+		font-weight: bold;
+	}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $("#save_user").click(function(e){
+	    e.preventDefault();
+
+	    var number = $('#phone').val()
+	    var regexp = /^[0-9]*$/;
+	    var textexp = /^[a-zA-Z !@.-_#$%^&*)(]*$/
+	    var valid_number = regexp.test(number);
+	    var email = $('#email').val();
+	    var x = true;
+	    var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      	var valid_email = emailReg.test(email)
+
+      	// alert(valid_email)
+	    if($('#first_name').val() !== '' && $('#last_name').val() !== '' && $('#phone').val() && number.length==10 && emailReg.test($('#email').val()) && $('#dob').val() && valid_number ===true && $('#password').val() == $('#conf_password').val() ){
+	    	$('#ln_err').html("")
+	    	$('#fn_err').html("")
+	    	$('#email_err').html("")
+	    	$('#ph_err').html("")
+	    	$('#db_err').html("")
+	    	$('#pass_err').html("")
+	    	$('#conf_pass_err').html("")
+	    	var user_data = {
+		    	first_name: $('#first_name').val(),
+		    	last_name: $('#last_name').val(),
+		    	phone: $('#phone').val(),
+		    	email: $('#email').val(),
+		    	dob: $('#dob').val(),
+		    	address: $('#address').val(),
+		    	verified: true,
+		    	password: $('#conf_password').val()
+		    }
+		    console.log(user_data)
+		    // if(x == true){
+			    $.ajax({
+			    	method: "POST",
+			    	url: '/admin/save_user',
+			    	data: user_data,
+			    	success: function(res){
+			    		console.log(res)
+			    		if(res.status == 400){
+			    			$('#msg_blk').removeClass('hide')
+			    			$('#msg_box').html(res.msg)
+			    			setTimeout(function(){
+			    				$('#msg_blk').addClass('hide')
+			    			}, 3000)
+			    		}
+			    		if(res.status === 200){
+			    			$('#msg_blk').removeClass('hide')
+			    			$('#user_form').trigger("reset");
+			    			setTimeout(function(){
+			    				window.location.href = "/admin/users"
+			    			},2000)
+			    		}
+			    	}
+			    })
+			 	// }
+	    }else{
+	    	if(!valid_number){
+	    		$('#ph_err').html("Please enter valid number")
+	    	}
+	    	if(number.length < 10){
+	    		$('#ph_err').html("Please enter 10 digit number")
+	    	}
+
+	    	if($('#first_name').val() == ""){
+	    		$('#fn_err').html("First name required")
+	    	}else{
+	    		$('#fn_err').html("")
+	    	}
+	    	if($('#last_name').val() == ""){
+	    		$('#ln_err').html("Last name required")
+	    	}else{
+	    		$('#ln_err').html("")
+	    	}
+	    	if($('#password').val() == ""){
+	    		$('#pass_err').html("Password required")
+	    	}else{
+	    		$('#pass_err').html("")
+	    	}
+	    	if($('#conf_password').val() == ""){
+	    		$('#conf_pass_err').html("Confirm Password required")
+	    	}else{
+	    		$('#conf_pass_err').html("")
+	    	}
+
+	    	if($('#password').val() !== '' && $('#conf_password').val() !== ""){
+	    		if($('#password').val() !== $('#conf_password').val()){
+	    			$('#conf_pass_err').html("Password and Confirm Password Must be same")
+	    		}
+	    	}
+	    	if($('#phone').val() == ""){
+	    		$('#ph_err').html("Phone Number required")
+	    	}else{
+	    		$('#ph_err').html("")
+	    	}
+	    	if($('#email').val() == ""){
+	    		$('#email_err').html("Email required")
+	    	}else{
+	    		if(!emailReg.test($('#email').val())) {
+		    		$('#email_err').html("Enter valid Email")
+		    	}else{
+		    		$('#email_err').html("")
+		    	}
+	    	}
+	    	if($('#dob').val() == ""){
+	    		$('#db_err').html("Date of Birth required")
+	    	}else{
+	    		$('#db_err').html("")
+	    	}
+	    }
+	  });
+	});
+</script>

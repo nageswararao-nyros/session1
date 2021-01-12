@@ -1,0 +1,172 @@
+<%- include('../partials/layout') %>
+<div class="main_wrapper">
+			<div class="wrapper_header">
+		<div class="row">
+			<div class="col-md-6">
+				Users
+			</div>
+			<div align="right" class="col-md-6">
+				<a href="/admin/logout" class="btn btn-default">Logout</a>
+			</div>
+		</div>
+	</div>
+		<div style="padding: 30px">
+		<div align="right"><a href="/admin/add_user" class="btn btn-primary">Add User</a></div>
+		<br /><br />
+		<form id="filters_form">
+			<table>
+				<tbody class="filter">
+					<tr>
+						<td>
+							<td class="labl">First Name:</td>
+			                <td class="input-group" style="margin-right: 20px;">
+			                 <input type="text" column='1' class="form-control" name="title">
+			                </td>
+						</td>
+						<td style="margin-left: 20px;" >
+							<td class="labl">Last Name:</td>
+			                <td class="input-group" style="margin-right: 20px;">
+			                 <input type="text" column='2' class="form-control" name="assign">
+			                </td>
+						</td>
+						<td style="margin-left: 20px;">
+							<td class="labl">Phone:</td>
+			                <td class="input-group" style="margin-right: 20px;">
+			                 <input type="text" column='4' class="form-control" name="assign">
+			                </td>
+						</td>
+						<td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<table id="users_table" style="margin-top: 20px;" width="100%" class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>S.No</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>DoB</th>
+					<th>Phone</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i< users.length; i++) { %>
+					<tr>
+						<td><%= i+1 %></td>
+						<td><%= users[i].first_name %></td>
+						<td><%= users[i].last_name %></td>
+						<td><%= moment(users[i].dob).format("Do MMMM")%></td>
+						<td><%= users[i].phone%></td>
+						<td>
+							<a href="/admin/user/<%= users[i]._id %>/edit"><button class="btn"><i style="color: blue;" class="fa  fa-pencil" ></i></button></a>
+							<button data-toggle="modal" onclick="openDeleteModal('<%= users[i].first_name %>','<%= users[i]._id %>')" data-target="#myModal" class="btn" style="margin-top: 5px;"><i style="color: blue;" class="fa fa-trash-o" ></i></button>
+
+						</td>
+					</tr>
+				<%}%>
+			</tbody>
+		</table>
+
+		  <!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Modal Header</h4>
+	        </div>
+	        <div class="modal-body">
+	          <p>Are you want to remove <b id="user_name"></b>  ?</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	          <input type="hidden" id="del_user" name="">
+	          <button type="button" onclick="deleteUser()" class="btn btn-danger" data-dismiss="modal">Delete</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+
+
+	</div>
+</div>
+ <script type="text/javascript"  src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script> 
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"> 
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="/admin_assets/js/jquery.tableToExcel.js"></script>
+
+
+
+ <!-- DataTables JavaScript -->
+<script src="/admin_assets/js/plugins/custom-select/jquery-customselect.js"></script>
+<script src="/admin_assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/admin_assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="/admin_assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
+<script type="text/javascript" src='/admin_assets/js/custom_scripts/skills.js'></script> 
+<!-- export the skills into excel sheet -->
+<script src="/admin_assets/js/jquery.tableToExcel.js"></script>
+
+<style type="text/css">
+	.dataTables_filter{
+		position: absolute;
+		/*text-align: right;*/
+		right: 20;
+	}
+</style>
+<script type="text/javascript">
+
+	 $(document).ready(function() {
+		var table = $('#users_table').DataTable({
+	        search:{
+	          search: ""
+	        },
+	        "aaSorting": [],
+	       
+	    });
+	    $('.filter input').on( 'keyup', function () {
+	        var column = $(this).attr("column");
+	        table
+	          .columns( column )
+	          .search( this.value )
+	          .draw();
+	    });
+
+	    $('#status').on('change', function () {
+	        var column = $(this).attr("column");          
+	        table
+	          .columns( column )
+	          .search( this.value )
+	          .draw();
+	    });
+	})
+	function openDeleteModal(name,id){
+		$('#del_user').val(id)
+		$('#user_name').html(name)
+		
+	}
+
+	function deleteUser(){
+		var id = $('#del_user').val()
+		$.ajax({
+			method: 'get',
+    	url: '/admin/user/'+id+'/delete_user',
+    	success: function(res){
+    		if(res.status === 200){
+    			window.location.href = "/admin/users"
+    		}
+    	}
+		})
+	}
+
+</script>
